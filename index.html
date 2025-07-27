@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meano Grievance Portal</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #9A4EAE; color: #fff; padding: 20px; margin: auto; max-width: 100%; }
+  .hidden { display: none; }
+  h1 { text-align: center; margin-bottom: 10px; font-size: 2.5em; }
+  h2 { text-align: center; margin-bottom: 10px; }
+  .subheading { font-family: Calibri, sans-serif; font-size: 1.7em; margin-top: 15px; }
+  .option-list { list-style: none; padding: 0; }
+  .option-list li { display: flex; align-items: center; margin: 5px 0; flex-wrap: wrap; }
+  .option-list input { margin-right: 10px; }
+  input, textarea, button { width: 100%; box-sizing: border-box; padding: 10px; margin: 8px 0; border-radius: 8px; border: 1px solid #ccc; font-size: 1em; }
+  input[type="checkbox"] { width: auto; }
+  button { background: #fff; color: #333; font-weight: bold; border: none; }
+  textarea { background: #fff; color: #333; resize: vertical; }
+  .center { text-align: center; margin-top: 20px; }
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    h1 { font-size: 2em; }
+    .subheading { font-size: 1.4em; }
+    input, textarea, button { font-size: 0.9em; padding: 8px; }
+    iframe { height: 250px; }
+  }
+  /* Prevent horizontal overflow */
+  html, body { overflow-x: hidden; }
+}
+    .subheading { font-size: 1.4em; }
+    input, textarea, button { font-size: 0.9em; padding: 8px; }
+    iframe { height: 250px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Page 1: Password -->
+<div id="passwordScreen">
+  <h1>Meano Grievance Portal</h1>
+  <p>Hellloooo m'lady</p>
+  <p>Pweeez enter the password fanku</p>
+  <input type="password" id="passwordInput" placeholder="Password">
+  <button type="button" onclick="checkPassword()">Enter</button>
+  <p id="wrongPass" style="color: #ffdddd; display: none;">Wrong password. Try again.</p>
+</div>
+
+<!-- Form Wizard -->
+<form id="grievanceForm" class="hidden">
+  <!-- Page 2: Bother Options -->
+  <div id="page2">
+    <h1>Meano Grievance Portal</h1>
+    <div class="subheading">What's bothering you:</div>
+    <ul class="option-list">
+      <li><input type="checkbox" name="bother" value="I mish u :("><label>I mish u :(</label></li>
+      <li><input type="checkbox" name="bother" value="Mama/Papa"><label>Mama/Papa</label></li>
+      <li><input type="checkbox" name="bother" value="Raahim"><label>Raahim</label></li>
+      <li><input type="checkbox" name="bother" value="Potti nhi arahi"><label>Potti nhi arahi</label></li>
+      <li><input type="checkbox" name="bother" value="Pishi nhi arahi"><label>Pishi nhi arahi</label></li>
+      <li><input type="checkbox" name="bother" value="I've finally realized I'm dumb"><label>I've finally realized I'm dumb</label></li>
+      <li><input type="checkbox" name="bother" value="I miss my friends"><label>I miss my friends</label></li>
+      <li><input type="checkbox" name="bother" value="I'm horny"><label>I'm horny</label></li>
+      <li><input type="checkbox" name="bother" value="Meray bag main samaan rakhnay ki jaga khatam ho gai sigh"><label>Meray bag main samaan rakhnay ki jaga khatam ho gai sigh</label></li>
+      <li><input type="checkbox" name="bother" value="Something else"><label>Something else</label></li>
+    </ul>
+    <div class="subheading">Elaborate:</div>
+    <textarea name="elaborate" rows="3" placeholder="Tell me more..."></textarea>
+    <button type="button" onclick="nextPage(3)">Next</button>
+  </div>
+
+  <!-- Page 3: Mood -->
+  <div id="page3" class="hidden">
+    <h1>Meano Grievance Portal</h1>
+    <div class="subheading">Mood (pick up to 2):</div>
+    <ul class="option-list">
+      <li><input type="checkbox" name="mood" value="😠"><label>😠</label></li>
+      <li><input type="checkbox" name="mood" value="😢"><label>😢</label></li>
+      <li><input type="checkbox" name="mood" value="😡"><label>😡</label></li>
+      <li><input type="checkbox" name="mood" value="😭"><label>😭</label></li>
+      <li><input type="checkbox" name="mood" value="😤"><label>😤</label></li>
+      <li><input type="checkbox" name="mood" value="😔"><label>😔</label></li>
+      <li><input type="checkbox" name="mood" value="😖"><label>😖</label></li>
+      <li><input type="checkbox" name="mood" value="😫"><label>😫</label></li>
+      <li><input type="checkbox" name="mood" value="😓"><label>😓</label></li>
+      <li><input type="checkbox" name="mood" value="😞"><label>😞</label></li>
+      <li><input type="checkbox" name="mood" value="😩"><label>😩</label></li>
+      <li><input type="checkbox" name="mood" value="😒"><label>😒</label></li>
+      <li><input type="checkbox" name="mood" value="😕"><label>😕</label></li>
+      <li><input type="checkbox" name="mood" value="😲"><label>😲</label></li>
+      <li><input type="checkbox" name="mood" value="😱"><label>😱</label></li>
+    </ul>
+    <button type="button" onclick="nextPage(4)">Next</button>
+  </div>
+
+  <!-- Page 4: Severity -->
+  <div id="page4" class="hidden">
+    <h1>Meano Grievance Portal</h1>
+    <div class="subheading">How bad is it? (pick up to 3):</div>
+    <ul class="option-list">
+      <li><input type="checkbox" name="severity" value="meh"><label>meh</label></li>
+      <li><input type="checkbox" name="severity" value="annoying but whatever"><label>annoying but whatever</label></li>
+      <li><input type="checkbox" name="severity" value="gimme some kfc and I’ll survive"><label>gimme some kfc and I’ll survive</label></li>
+      <li><input type="checkbox" name="severity" value="smiling but internally screaming"><label>smiling but internally screaming</label></li>
+      <li><input type="checkbox" name="severity" value="Sab ko chamaat"><label>Sab ko chamaat</label></li>
+      <li><input type="checkbox" name="severity" value="Ghar jala dun gi"><label>Ghar jala dun gi</label></li>
+      <li><input type="checkbox" name="severity" value="Don’t talk to me rn"><label>Don’t talk to me rn</label></li>
+      <li><input type="checkbox" name="severity" value="holding back rage tears"><label>holding back rage tears</label></li>
+      <li><input type="checkbox" name="severity" value="nuclear meltdown. avoid eye contact"><label>nuclear meltdown. avoid eye contact</label></li>
+      <li><input type="checkbox" name="severity" value="i will explode. soon."><label>i will explode. soon.</label></li>
+      <li><input type="checkbox" name="severity" value="this is your fault btw"><label>this is your fault btw</label></li>
+      <li><input type="checkbox" name="severity" value="don’t even. just don’t"><label>don’t even. just don’t</label></li>
+    </ul>
+    <button type="button" onclick="submitForm()">Submit</button>
+  </div>
+</form>
+
+<!-- Page 5: Thank You -->
+<div id="thankYou" class="center hidden">
+  <h1 style="font-size:2.5em;">Meano Grievance Portal</h1>
+  <div style="text-align:left; color:#fff; margin-top:20px;">
+    <p>Your grievance has been submitted and Mr. Mogu Mogu has been notified. He shall be with you to address your concerns shortly.</p>
+    <p>In the meantime please help yourself to this playlist, carefully curated by Mr. Mogu Mogu himself.</p>
+    <iframe data-testid="embed-iframe" style="border-radius:12px; margin:20px 0;" src="https://open.spotify.com/embed/playlist/2BeAdFVWWItfdpaohMWyZn?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <p><strong>A message from Mr. Mogu Mogu himself:</strong><br>
+    Fanku sm for the submission.<br>
+    Me preeshiates it.<br>
+    Dont kys pweeez.</p>
+  </div>
+</div>
+
+<script>
+// Limit selections
+function limitSelection(name, max) {
+  document.querySelectorAll(`input[name="${name}"]`).forEach(cb => {
+    cb.addEventListener('change', () => {
+      const checked = document.querySelectorAll(`input[name="${name}"]:checked`);
+      if (checked.length > max) {
+        cb.checked = false;
+        alert(`Pick up to ${max} for ${name}`);
+      }
+    });
+  });
+}
+limitSelection('mood', 2);
+limitSelection('severity', 3);
+
+function checkPassword() {
+  if (document.getElementById('passwordInput').value === 'meano') {
+    document.getElementById('passwordScreen').classList.add('hidden');
+    document.getElementById('grievanceForm').classList.remove('hidden');
+    document.getElementById('page2').classList.remove('hidden');
+  } else {
+    document.getElementById('wrongPass').style.display = 'block';
+  }
+}
+
+function nextPage(num) {
+  hidePages();
+  document.getElementById('page'+num).classList.remove('hidden');
+}
+
+function hidePages() {
+  ['page2','page3','page4'].forEach(id => document.getElementById(id).classList.add('hidden'));
+}
+
+function submitForm() {
+  const form = document.getElementById('grievanceForm');
+  fetch('https://formsubmit.co/a.areebch2000@gmail.com', { method: 'POST', body: new FormData(form) })
+    .then(() => {
+      form.classList.add('hidden');
+      document.getElementById('thankYou').classList.remove('hidden');
+    }).catch(() => alert('Submission failed.'));
+}
+</script>
+
+</body>
+</html>
