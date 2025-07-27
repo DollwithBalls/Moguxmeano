@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meano Grievance Portal</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fceaff;
+    }
+    .page {
+      display: none;
+      padding: 40px;
+    }
+    .active {
+      display: block;
+    }
+    h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 28px;
+    }
+    .btn {
+      background-color: #ff9cee;
+      color: #000;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    .checkbox-group {
+      margin: 20px 0;
+    }
+    label {
+      display: block;
+      font-size: 20px;
+      margin: 8px 0;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      font-size: 20px;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+    iframe {
+      width: 100%;
+      height: 352px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page active" id="page1">
+    <h1>Meano Grievance Portal</h1>
+    <h2 style="font-size: 33px">Mood (pick up to 2):</h2>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="mood" value="😭"> 😭</label>
+      <label><input type="checkbox" name="mood" value="😡"> 😡</label>
+      <label><input type="checkbox" name="mood" value="😩"> 😩</label>
+      <label><input type="checkbox" name="mood" value="😔"> 😔</label>
+      <label><input type="checkbox" name="mood" value="🥺"> 🥺</label>
+      <label><input type="checkbox" name="mood" value="😤"> 😤</label>
+    </div>
+    <h2 style="font-size: 33px">How bad is it? (pick up to 3):</h2>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="badness" value="💔"> 💔</label>
+      <label><input type="checkbox" name="badness" value="😵"> 😵</label>
+      <label><input type="checkbox" name="badness" value="😵‍💫"> 😵‍💫</label>
+      <label><input type="checkbox" name="badness" value="🤧"> 🤧</label>
+      <label><input type="checkbox" name="badness" value="🤕"> 🤕</label>
+    </div>
+    <button class="btn" onclick="nextPage()">Next</button>
+  </div>
+
+  <div class="page" id="page2">
+    <h1>Meano Grievance Portal</h1>
+    <h2 style="font-size: 33px">What's bothering you:</h2>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="bother" value="I mish u :("> ✅ I mish u :(</label>
+      <label><input type="checkbox" name="bother" value="Mama/Papa"> ✅ Mama/Papa</label>
+      <label><input type="checkbox" name="bother" value="Raahim"> ✅ Raahim</label>
+      <label><input type="checkbox" name="bother" value="Potti nhi arahi"> ✅ Potti nhi arahi</label>
+      <label><input type="checkbox" name="bother" value="Pishi nhi arahi"> ✅ Pishi nhi arahi</label>
+      <label><input type="checkbox" name="bother" value="I've finally realized I'm dumb"> ✅ I've finally realized I'm dumb</label>
+      <label><input type="checkbox" name="bother" value="I miss my friends"> ✅ I miss my friends</label>
+      <label><input type="checkbox" name="bother" value="I'm horny"> ✅ I'm horny</label>
+      <label><input type="checkbox" name="bother" value="Meray bag main samaan rakhnay ki jaga khatam ho gai sigh"> ✅ Meray bag main samaan rakhnay ki jaga khatam ho gai sigh</label>
+      <label><input type="checkbox" name="bother" value="Something else"> ✅ Something else</label>
+    </div>
+    <h2 style="font-size: 33px">Elaborate:</h2>
+    <textarea placeholder="Type here..."></textarea>
+    <button class="btn" onclick="nextPage()">Submit</button>
+  </div>
+
+  <div class="page" id="page3">
+    <h1 style="font-size: 52px">Meano Grievance Portal</h1>
+    <p style="font-size: 24px">
+      Your grievance has been submitted and Mr. Mogu Mogu has been notified. He shall be with you to address your concerns shortly.
+    </p>
+    <p style="font-size: 24px">
+      In the meantime please help yourself to this playlist, carefully curated by Mr. Mogu Mogu himself.
+    </p>
+    <iframe src="https://open.spotify.com/embed/playlist/2BeAdFVWWItfdpaohMWyZn?utm_source=generator" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <p style="font-size: 24px; margin-top: 20px">
+      A message from Mr. Mogu Mogu himself:<br />
+      Fanku sm for the submission.<br />
+      Me preeshiates it.<br />
+      Dont kys pweeez.
+    </p>
+  </div>
+
+  <script>
+    let currentPage = 1;
+    function nextPage() {
+      document.getElementById(`page${currentPage}`).classList.remove('active');
+      currentPage++;
+      document.getElementById(`page${currentPage}`).classList.add('active');
+    }
+  </script>
+</body>
+</html>
